@@ -1,7 +1,13 @@
 const $showcase = document.querySelector('.showcase');
 
-const renderGoodsItem = ({ title, price }) => {
-  return `<div class="goods-item"><h3>${title}</h3><p>${price}</p></div>`;
+const renderGoodsItem = ({ id, title, price }) => {
+    return `<tr>            
+            <th scope="row">${id}</th>
+            <td>${title}</td>
+            <td>${price}</td>
+            </tr>`;
+
+
 };
 
 const renderGoodsList = (list) => {
