@@ -11,6 +11,7 @@
   "author": "I'm",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.2",
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1"
   },
