@@ -3,3 +3,16 @@ $body-color: red;
 body {
   color: $body-color;
 }
+
+.all-goods {
+  display: flex;
+}
+
+.showcase {
+  margin-right: 100px;
+}
+
+.cart {
+  margin-left: 100px;
+  border: 1px solid #000;
+}
