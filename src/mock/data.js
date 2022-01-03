@@ -1,8 +1,8 @@
 import { random } from 'lodash'
 
 const PRODUCTS = [
-  'Shirt', 
-  'Shoes', 
+  'Shirt',
+  'Shoes',
   'Hat',
   'Jacket',
   'Socks'
@@ -13,7 +13,7 @@ const COLORS = [
   'red',
   'orange',
   'black',
-  'white'
+  'blue'
 ]
 
 let lastIndex = 0;
@@ -37,7 +37,7 @@ function getProduct() {
 function getProductList(count) {
   let products = [];
 
-  for(let i = 0; i < count; i++) {
+  for (let i = 0; i < count; i++) {
     products.push(getProduct());
   }
 
