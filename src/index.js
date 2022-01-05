@@ -24,7 +24,7 @@ function addGoodToCart(id) {
         });
       });
     },
-    `${API_URL}/cart/add`,
+    `${API_URL}/cart`,
     "POST",
     JSON.stringify(wasBought),
     { "Content-Type": "application/json" }
@@ -45,8 +45,8 @@ function removeGoodFromCart(button) {
       );
       document.querySelector(".cart").removeChild(button.parentNode);
     },
-    `${API_URL}/cart/remove`,
-    "POST",
+    `${API_URL}/cart`,
+    "DELETE",
     JSON.stringify(wasBought),
     { "Content-Type": "application/json" }
   );
@@ -83,5 +83,5 @@ send(
       });
     });
   },
-  `${API_URL}/cart/add`
+  `${API_URL}/cart`
 );

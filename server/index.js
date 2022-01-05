@@ -22,7 +22,7 @@ app.get("/api/catalog", (req, res) => {
   });
 });
 
-app.get("/api/cart/add", (req, res) => {
+app.get("/api/cart", (req, res) => {
   fs.readFile(cart_path, "utf-8", (err, data) => {
     if (!err) {
       res.send(data);
@@ -32,7 +32,7 @@ app.get("/api/cart/add", (req, res) => {
   });
 });
 
-app.post("/api/cart/add", (req, res) => {
+app.post("/api/cart", (req, res) => {
   fs.readFile(cart_path, "utf-8", (err, data) => {
     if (!err) {
       const cart = JSON.parse(data);
@@ -46,7 +46,7 @@ app.post("/api/cart/add", (req, res) => {
   });
 });
 
-app.post("/api/cart/remove", (req, res) => {
+app.delete("/api/cart", (req, res) => {
   fs.readFile(cart_path, "utf-8", (err, data) => {
     if (!err) {
       let cart = JSON.parse(data);
