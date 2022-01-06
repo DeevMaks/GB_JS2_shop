@@ -1,4 +1,4 @@
-import { productList } from "./index.js";
+import { productList } from "../index.js";
 
 function addGoodToCart(id) {
   let wasBought = productList.find((product) => product.id === Number(id));
