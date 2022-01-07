@@ -1,10 +1,12 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require("copy-webpack-plugin");
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+
 
 module.exports = {
 
-    mode: 'production',
+    mode: 'development',
 
     entry: {
         main: path.resolve(__dirname, './src/index.js'),
@@ -26,6 +28,7 @@ module.exports = {
         { from: "src/template.css", to: "" },
       ],
     }),
+      new CleanWebpackPlugin()
 
     ],
 }

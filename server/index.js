@@ -39,12 +39,29 @@ app.post('/api/ver1/cart', (req, res) => {
       cart.push(req.body);
       fs.writeFile(cart_path, JSON.stringify(cart), 'utf-8', (err, data) => {
         res.sendStatus(201)
+
       })
     } else {
       res.status(500).send(err)
     }
   })
 })
+
+app.delete("/api/ver1/cart", (req, res) => {
+  fs.readFile(cart_path, "utf-8", (err, data) => {
+    if (!err) {
+      let cart = JSON.parse(data);
+      //подумать
+      cart = cart.filter((item) => item.id !== Number(req.body.id));
+      fs.writeFile(cart_path, JSON.stringify(cart), "utf-8", (err, data) => {
+        res.sendStatus(201);
+      });
+    } else {
+      res.status(500).send(err);
+    }
+  });
+});
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

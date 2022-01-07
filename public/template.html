@@ -18,11 +18,12 @@
     <div class="text-center">
       <table class="table goods-item">
         <thead>
-        <tr>
+        <tr class="ins">
             <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Price</th>
-            <th scope="col"><button type="button" onclick="opencart()" class="btn btn-primary">Корзина</button></th>
+            <th scope="col"></th>
+
         </tr>
         </thead>
         <tbody class="showcase"></tbody>
@@ -35,32 +36,7 @@
   </footer>
 <script>
 
-  function modalclose() {
-    //alert("close");
-    document.body.removeChild(document.body.lastChild)
-  }
-  function opencart() {
-    //alert("open");
-    var element = document.createElement('div')
-    element.className = 'modal_cart'
-    element.innerHTML = '<div class="modal" tabindex="-1">\n' +
-    '  <div class="modal-dialog">\n' +
-    '    <div class="modal-content">\n' +
-    '      <div class="modal-header">\n' +
-    '        <h5 class="modal-title">Modal title</h5>\n' +
-    '        </div>\n' +
-    '      <div class="modal-body">\n' +
-    '        <p>Modal body text goes here.</p>\n' +
-    '      </div>\n' +
-    '      <div class="modal-footer">\n' +
-    '        <button type="button" onclick="modalclose();" id="mclose" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>\n' +
-    '      </div>\n' +
-    '    </div>\n' +
-    '  </div>\n' +
-    '</div>'
 
-       document.body.appendChild(element);
-    }
 </script>
 </body>
 </html>

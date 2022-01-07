@@ -1,5 +1,5 @@
 export function send(onError, onSuccess, url, method = 'GET', data = '', headers = {}, timeout = 60000) {
- 
+
     let xhr;
 
     if (window.XMLHttpRequest) {
