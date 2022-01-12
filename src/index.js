@@ -1,7 +1,7 @@
 import ApiHandler from './ApiHandler.js';
-import CartModel from './CartModel.js';
+import CartModel from './CartModel.mjs';
 import ShowcaseModel from './ShowcaseModel.js';
-import EventEmitter from './EventEmitter.js'
+import EventEmitter from './EventEmitter.mjs'
 import './styles/style.css'
 import './styles/style.scss'
 

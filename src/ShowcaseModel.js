@@ -1,4 +1,4 @@
-import ProductList from './ProductList.js'
+import ProductList from './ProductList.mjs'
 
 export default class ShowcaseModel extends ProductList{
   constructor(apiHandler, eventEmmiter, cart) {
