@@ -11,3 +11,17 @@ describe('CartModel.fetch', () => {
     expect(model.list.length).toBeGreaterThan(0);
   })
 });
+
+describe('CartModel.add', () => {
+  it('добавление товара', () => {
+    model.add()
+    expect(model.list.length).toBeGreaterThan(0);
+  })
+});
+
+describe('CartModel.remove', () => {
+  it('удаление товара', () => {
+    model.remove()
+    expect(model.list.length).toBeGreaterThan(0);
+  })
+});
