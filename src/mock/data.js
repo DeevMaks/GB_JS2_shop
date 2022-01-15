@@ -1,4 +1,6 @@
-import { random } from 'lodash'
+//import { random } from 'lodash'
+import pkg, { divide } from 'lodash';
+const { random } = pkg;
 
 const PRODUCTS = [
   'Shirt', 
@@ -45,5 +47,7 @@ function getProductList(count) {
 
   return products
 }
+
+
 
 export default getProductList;
