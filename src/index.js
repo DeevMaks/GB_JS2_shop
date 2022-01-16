@@ -1,10 +1,10 @@
-import ApiHandler from "./ApiHandler.js";
-import CartModel from "./CartModel.js";
-import CatalogModel from "./CatalogModel.js";
-import EventEmitter from "./EventEmitter.js";
+import ApiHandler from "./ApiHandler.mjs";
+import CartModel from "./CartModel.mjs";
+import CatalogModel from "./CatalogModel.mjs";
+import EventEmitter from "./EventEmitter.mjs";
 import "./style/style.scss";
 
-const API_URL = "http://localhost:3000/api/v1";
+const API_URL = "./api/v1";
 
 const api = new ApiHandler(API_URL);
 const eventEmitter = new EventEmitter();

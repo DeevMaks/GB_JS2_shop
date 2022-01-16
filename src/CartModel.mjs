@@ -1,4 +1,4 @@
-import ProductList from "./ProductList.js";
+import ProductList from "./ProductList.mjs";
 
 export default class CartModel extends ProductList {
   constructor(apiHandler, eventEmitter) {
@@ -16,13 +16,25 @@ export default class CartModel extends ProductList {
 
   add(product, onError) {
     this.list.push(product);
-    this.api.addToCart(() => {}, onError, this.list);
+    this.api.addToCart(
+      (success) => {
+        console.log("add() is returned with status: " + success.status);
+      },
+      onError,
+      this.list
+    );
     this.eventEmitter.emit("cartFetched");
   }
 
   remove(id, onError) {
     this.list = this.list.filter((item) => item.id !== Number(id));
-    this.api.addToCart(() => {}, onError, this.list);
+    this.api.addToCart(
+      (success) => {
+        console.log("remove() is returned with status: " + success.status);
+      },
+      onError,
+      this.list
+    );
     this.eventEmitter.emit("cartFetched");
   }
 }
