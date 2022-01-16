@@ -1,4 +1,4 @@
-class ApiHandler {
+export default class ApiHandler {
     constructor(apiUrl) {
         this.apiUrl = apiUrl
     }
