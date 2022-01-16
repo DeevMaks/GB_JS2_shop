@@ -1,4 +1,4 @@
-import ProductList from './ProductList'
+import ProductList from './ProductList.mjs'
 
 export default class CartModel extends ProductList {
   constructor(apiHandler, eventEmmiter) {
