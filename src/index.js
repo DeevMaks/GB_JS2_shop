@@ -23,10 +23,8 @@ eventEmmiter.subscribe('cartFeched', (data) => {
 showcase.fetch()
 //получаем список товаров в корзине
 cart.fetch()
-//отрисовываем витрину товаров
-//showcase.show_button_buy()
-//buy
-//setTimeout(() => {showcase.buy(7)}, 3000);
+
+setTimeout(() => {cart.remove(2)}, 3000);
 
 
 

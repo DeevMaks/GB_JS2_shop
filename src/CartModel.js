@@ -32,6 +32,7 @@ export default class CartModel extends ProductList {
 
   remove(id, onError) {
     if(this.find(id)) {
+        console.log("find")
       this.api.removeFromCart(
         () => {
           this.remove(id)
