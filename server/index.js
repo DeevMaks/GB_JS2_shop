@@ -12,7 +12,7 @@ app.use(express.json())
 
 app.get('/api/v1/catalog', (req, res) => {
     fs.readFile(catalog_path, 'utf-8', (err, data) => {
-        if(!err) {
+        if (!err) {
             res.send(data);
         } else {
             res.status(500).send(err)
@@ -22,7 +22,7 @@ app.get('/api/v1/catalog', (req, res) => {
 
 app.get('/api/v1/cart', (req, res) => {
     fs.readFile(cart_path, 'utf-8', (err, data) => {
-        if(!err) {
+        if (!err) {
             res.send(data);
         } else {
             res.status(500).send(err)
@@ -32,7 +32,7 @@ app.get('/api/v1/cart', (req, res) => {
 
 app.post('/api/v1/cart', (req, res) => {
     fs.readFile(cart_path, 'utf-8', (err, data) => {
-        if(!err) {
+        if (!err) {
             const cart = JSON.parse(data);
             cart.push(req.body);
             fs.writeFile(cart_path, JSON.stringify(cart), 'utf-8', (err, data) => {
@@ -45,17 +45,18 @@ app.post('/api/v1/cart', (req, res) => {
 })
 
 app.delete('/api/v1/cart', (req, res) => {
-    fs.readFile(cart_path, 'utf-8', (err, data) =>{
-        if(!err) {
-            const cart = JSON.parse(data);
-            cart.delete(req.body);
-            fs.delete(cart_path, JSON.stringify(cart), 'utf-8', (err, data) => {
+    fs.readFile(cart_path, 'utf-8', (err, data) => {
+        if (!err) {
+            let cart = JSON.parse(data);
+            let index = cart.findIndex(p => p.id == req.body.id)
+            cart.splice(index, 1);
+
+            fs.writeFile(cart_path, JSON.stringify(cart), 'utf-8', (err, data) => {
                 res.sendStatus(201)
             })
         } else {
             res.status(500).send(err)
         }
-        
     })
 })
 

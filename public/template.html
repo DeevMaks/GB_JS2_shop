@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
 </head>
+
 <body>
   <div class="wrapper">
     <div class="container">
       <header class="header">
-        <h1>GeekShop</h1>
-    </header>
+        <input type="text" class="goods-search" />
+        <button class="search-button" type="button">Искать</button>
+        <button class="cart-button" type="button">Корзина</button>
+      </header>
     </div>
     <div class="content">
       <div class="showcase"></div>
@@ -25,4 +31,5 @@
     </footer>
   </div>
 </body>
+
 </html>
