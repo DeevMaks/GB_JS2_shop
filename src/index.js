@@ -23,6 +23,7 @@ cart.fetch()
 eventEmmiter.subscribe('showcaseFeched', () => {
   showcase.buy(1)
 })
+
 //=========================================================
 // import getProductList from "./MockApi.mjs";
 
