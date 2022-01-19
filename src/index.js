@@ -19,3 +19,7 @@ eventEmmiter.subscribe('cartFeched', (data) => {
 
 showcase.fetch()
 cart.fetch()
+
+eventEmmiter.subscribe('showcaseFeched', () => {
+  showcase.buy(1)
+})

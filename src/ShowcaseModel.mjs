@@ -20,7 +20,7 @@ export default class ShowcaseModel extends ProductList{
 
   buy(id, onError) {
     const product = this.find(id) 
-    if(product) cart.add(product, onError)
+    if(product) this.cart.add(product, onError)
   }
 
 }
