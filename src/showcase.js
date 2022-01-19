@@ -38,8 +38,9 @@ export default class GoodsList extends ProductList {
     });
     document.querySelector('.showcase').innerHTML = listHtml;
   }
-  filterGoods(value) {
-    const regexp = new RegExp(value, 'i');
+  filterGoods() {
+    const search = this.document.querySelector('.goods-search').value
+    const regexp = new RegExp(search, 'i');
     this.filteredGoods = this.list.filter(good => regexp.test(good.title));
     this.render();
   }

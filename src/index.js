@@ -1,6 +1,6 @@
 import ApiHandler from './ApiHandler.js';
-import CartModel from './CartModel.mjs';
-import ShowcaseModel from './ShowcaseModel.mjs';
+// import CartModel from './CartModel.mjs';
+// import ShowcaseModel from './ShowcaseModel.mjs';
 import EventEmitter from './EventEmitter.mjs';
 import Showcase from './Showcase';
 
@@ -12,9 +12,10 @@ const API_URL = 'http://localhost:3000/api/v1'
 const api = new ApiHandler(API_URL)
 const eventEmmiter = new EventEmitter()
 
-const cart = new CartModel(api, eventEmmiter)
-const showcase = new ShowcaseModel(api, eventEmmiter, cart)
+// const cart = new CartModel(api, eventEmmiter)
+// const showcase = new ShowcaseModel(api, eventEmmiter, cart)
 const show = new Showcase(api, eventEmmiter)
+const showgood = document.querySelector('.search-button')
 
 eventEmmiter.subscribe('showcaseFeched', (data) => {
     console.log(data)
@@ -24,8 +25,10 @@ eventEmmiter.subscribe('cartFeched', (data) => {
     console.log(data)
 })
 
-showcase.fetch()
+// showcase.fetch()
 // cart.fetch()
 show.fetchGoods(() => {
     show.render();
 });
+
+showgood.addEventListener('click', show.filterGoods)
