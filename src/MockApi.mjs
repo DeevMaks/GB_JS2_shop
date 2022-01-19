@@ -1,8 +1,8 @@
-// import { random } from 'lodash'
+import { random } from 'lodash'
 
-function random() {
-  return 2
-}
+// function random() {
+//   return 2
+// }
 
 export default class MockApi {
   constructor() {
