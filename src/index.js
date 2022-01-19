@@ -17,9 +17,36 @@ eventEmmiter.subscribe('cartFeched', (data) => {
   console.log(data)
 })
 
-showcase.fetch()
-cart.fetch()
+// showcase.fetch()
+// cart.fetch()
 
-eventEmmiter.subscribe('showcaseFeched', () => {
-  showcase.buy(1)
-})
+// eventEmmiter.subscribe('showcaseFeched', () => {
+//   showcase.buy(1)
+// })
+//=========================================================
+import getProductList from "./MockApi.mjs";
+
+const productList = getProductList(20);
+let filteredList = [...productList];
+
+function getHtml(product) {
+  return `<div><h2>${product.title}$</h2> <p>${product.price}$</p></div>`
+}
+
+function render(list) {
+  const listEl = document.querySelector('#list');
+
+  listEl.textContent = '';
+  listEl.insertAdjacentHTML('afterbegin', list.map(getHtml).join(''));
+}
+
+function filter() {
+  const searchString = document.querySelector('#seqrch-input').value;
+  const regEx = new RegExp(searchString, 'ig');
+  filteredList = list.filter(({title}) => RegExp.test(title));
+
+  render(filteredList);
+}
+
+render(filteredList);
+document.querySelector('#search-btn').addEventListener('click', filter);
