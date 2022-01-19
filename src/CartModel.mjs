@@ -10,11 +10,13 @@ export default class CartModel extends ProductList {
   fetch(onError) {
     this.api.getCart((data) => {
       this.list = JSON.parse(data);
+      this.list.length > 0 ? (this.isVisible = true) : (this.isVisible = false);
       this.eventEmitter.emit("cartFetched");
     }, onError);
   }
 
   add(product, onError) {
+    this.isVisible = true;
     this.list.push(product);
     this.api.addToCart(
       (success) => {
@@ -35,6 +37,7 @@ export default class CartModel extends ProductList {
       onError,
       this.list
     );
+    this.list.length > 0 ? (this.isVisible = true) : (this.isVisible = false);
     this.eventEmitter.emit("cartFetched");
   }
 }

@@ -2,6 +2,7 @@ export default class ProductList {
   constructor(list, listType) {
     this.list = list;
     this.listType = listType;
+    this.isVisible = false;
   }
 
   getList() {
@@ -18,14 +19,21 @@ export default class ProductList {
   }
 
   renderList() {
-    let goodsList = this.list
-      .map((item) => {
-        return this.renderItem(item, this.listType);
-      })
-      .join("");
-    let listDiv = document.querySelector("." + this.listType);
-    listDiv.innerHTML = "";
-    listDiv.insertAdjacentHTML("beforeend", goodsList);
+    if (this.isVisible) {
+      let goodsList = this.list
+        .map((item) => {
+          return this.renderItem(item, this.listType);
+        })
+        .join("");
+      let listDiv = document.querySelector("." + this.listType);
+      listDiv.innerHTML = "";
+      listDiv.insertAdjacentHTML("beforeend", goodsList);
+      document.querySelector("." + this.listType).style.display = "block";
+    } else {
+      if (this.listType == "catalog")
+        document.querySelector("." + this.listType).innerHTML = "Нет товаров";
+      else document.querySelector("." + this.listType).style.display = "none";
+    }
   }
 
   addEvent() {

@@ -13,14 +13,18 @@ const cart = new CartModel(api, eventEmitter);
 const catalog = new CatalogModel(api, eventEmitter, cart);
 
 eventEmitter.subscribe("catalogFetched", () => {
-  catalog.renderList("catalog");
+  catalog.renderList();
   catalog.addEvent();
 });
 
 eventEmitter.subscribe("cartFetched", () => {
-  cart.renderList("cart");
+  cart.renderList();
   cart.addEvent();
 });
 
 catalog.fetch();
 cart.fetch();
+
+document
+  .querySelector("#search-input")
+  .addEventListener("input", catalog.filterProducts.bind(catalog));
