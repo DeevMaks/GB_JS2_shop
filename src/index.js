@@ -42,7 +42,7 @@ function render(list) {
 }
 
 function filter() {
-  const searchString = document.querySelector('#seqrch-input').value;
+  const searchString = document.querySelector('#search-input').value;
   const regEx = new RegExp(searchString, 'ig');
   filteredList = list.filter(({title}) => RegExp.test(title));
 
