@@ -48,13 +48,17 @@ app.post('/api/v1/cart', (req, res) => {
 app.delete('/api/v1/cart', (req, res) => {
   fs.readFile(cart_path, 'utf-8', (err, data) =>{
     if(!err) {
-      const cart = JSON.parse(data);
-      cart.delete(req.body);
-      fs.delete(cart_path, JSON.stringify(cart), 'utf-8', (err, data) => {
-          res.sendStatus(201)
+      let cart = JSON.parse(data);
+
+      let index = cart.findIndex(p => p.id == req.body.id);
+      cart.splice(index, 1);
+
+      // cart = cart.filter((product) => product.id !== req.body.id);
+      fs.writeFile(cart_path, JSON.stringify(cart), 'utf-8', (err, data) => {
+          res.sendStatus(201);
       })
     } else {
-      res.status(500).send(err)
+      res.status(500).send(err);
     }
   })
 })

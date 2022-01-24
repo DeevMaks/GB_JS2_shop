@@ -20,9 +20,21 @@ eventEmmiter.subscribe('cartFeched', (data) => {
 showcase.fetch()
 cart.fetch()
 
-eventEmmiter.subscribe('showcaseFeched', () => {
-  showcase.buy(1)
-})
+// eventEmmiter.subscribe('showcaseFeched', () => {
+//   showcase.buy(1)
+// })
+
+setTimeout(() => {
+  showcase.buy(1);
+}, 1000)
+
+setTimeout(() => {
+  showcase.buy(2);
+}, 2000)
+
+setTimeout(() => {
+  cart.remove(1);
+}, 3000)
 
 //=========================================================
 // import getProductList from "./MockApi.mjs";
