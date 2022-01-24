@@ -2,7 +2,7 @@ import ProductList from "./ProductList.mjs";
 
 export default class CartModel extends ProductList {
   constructor(apiHandler, eventEmitter) {
-    super([], "cart");
+    super([], "cart", "Remove Item");
     this.api = apiHandler;
     this.eventEmitter = eventEmitter;
   }

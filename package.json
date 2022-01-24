@@ -6,14 +6,15 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack serve",
-    "test": "jasmine" 
+    "test": "jasmine"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.2",
     "fs": "^0.0.1-security",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "vue": "^2.6.14"
   },
   "devDependencies": {
     "css-loader": "^6.5.1",

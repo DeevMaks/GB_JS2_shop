@@ -1,8 +1,9 @@
 export default class ProductList {
-  constructor(list, listType) {
+  constructor(list, listType, btnAction) {
     this.list = list;
     this.listType = listType;
     this.isVisible = false;
+    this.btnAction = btnAction;
   }
 
   getList() {
@@ -20,14 +21,38 @@ export default class ProductList {
 
   renderList() {
     if (this.isVisible) {
-      let goodsList = this.list
-        .map((item) => {
-          return this.renderItem(item, this.listType);
-        })
-        .join("");
-      let listDiv = document.querySelector("." + this.listType);
+      Vue.component(this.listType, {
+        props: ["goods"],
+        template: `
+          <div class="${this.listType}">
+            <h2>${this.listType}</h2>
+            <goods-item v-for="good in goods" :key="good.id" :good="good"></goods-item>
+          </div>`,
+      });
+
+      Vue.component("goods-item", {
+        props: ["good"],
+        template: `
+          <div class="goods-item">
+            <h3>{{ good.title }}</h3>
+            <p>{{ good.price }}</p>
+            <button :id="good.id">${this.btnAction}</button></div>
+          </div>
+        `,
+      });
+
+      let listDiv = document.querySelector("#" + this.listType + "-wrapper");
       listDiv.innerHTML = "";
-      listDiv.insertAdjacentHTML("beforeend", goodsList);
+      listDiv.insertAdjacentHTML(
+        "beforeend",
+        `<${this.listType} :goods='list'></${this.listType}>`
+      );
+
+      new Vue({
+        el: "#" + this.listType + "-wrapper",
+        data: { list: this.list },
+      });
+
       document.querySelector("." + this.listType).style.display = "block";
     } else {
       if (this.listType == "catalog")
